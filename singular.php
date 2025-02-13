@@ -3,9 +3,13 @@
 Template Name: Базовый шаблон
 */
 ?>
-<?php get_header(); the_post();  have_posts(); ?>
+<?php get_header();?>
 <main>
-    <?php the_title() ?>
-    <?php the_content() ?>
+<?php while ( have_posts() ) : 
+    the_post(); 
+
+    get_template_part( 'template-parts/content', get_post_type() );
+    ?>
+<?php endwhile; ?>
 </main>
 <?php get_footer(); ?>
